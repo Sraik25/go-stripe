@@ -1,0 +1,7 @@
+development:
+  dialect:
+  database:
+  user:
+  password:
+  host:
+  pool:
