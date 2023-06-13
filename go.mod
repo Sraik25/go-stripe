@@ -7,4 +7,7 @@ require (
 	github.com/go-chi/cors v1.2.1
 )
 
-require github.com/stripe/stripe-go/v74 v74.21.0
+require (
+	github.com/stripe/stripe-go/v72 v72.122.0
+	github.com/stripe/stripe-go/v74 v74.21.0
+)
