@@ -8,6 +8,15 @@ import (
 	"github.com/Sraik25/go-stripe/internal/cards"
 )
 
+// Home displays the home page
+func (app *application) Home(w http.ResponseWriter, r *http.Request) {
+
+	if err := app.renderTemplate(w, r, "home", &templateData{}, "stripe-js"); err != nil {
+		app.errorLog.Println(err)
+	}
+}
+
+// VirtualTerminal displays the virtual terminal page
 func (app *application) VirtualTerminal(w http.ResponseWriter, r *http.Request) {
 
 	if err := app.renderTemplate(w, r, "terminal", &templateData{}, "stripe-js"); err != nil {
@@ -51,6 +60,12 @@ func (app *application) PaymentSucceeded(w http.ResponseWriter, r *http.Request)
 	expiryMonth := pm.Card.ExpMonth
 	expiryYear := pm.Card.ExpYear
 
+	// TODO: create a new customer
+
+	// TODO: create a new order
+
+	// TODO: create a new transaction
+
 	data := make(map[string]interface{})
 	data["cardholder"] = cardHolder
 	data["email"] = email
@@ -62,6 +77,8 @@ func (app *application) PaymentSucceeded(w http.ResponseWriter, r *http.Request)
 	data["expiry_month"] = expiryMonth
 	data["expiry_year"] = expiryYear
 	data["bank_return_code"] = pi.Charges.Data[0].ID
+
+	// TODO: should write this data to session, and the redirect user to new page
 
 	if err := app.renderTemplate(w, r, "succeeded", &templateData{
 		Data: data,

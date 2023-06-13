@@ -8,6 +8,11 @@ require (
 )
 
 require (
+	github.com/alexedwards/scs/v2 v2.5.1
 	github.com/stripe/stripe-go/v72 v72.122.0
-	github.com/stripe/stripe-go/v74 v74.21.0
+)
+
+require (
+	github.com/stretchr/testify v1.7.0 // indirect
+	golang.org/x/net v0.0.0-20210520170846-37e1c6afe023 // indirect
 )
